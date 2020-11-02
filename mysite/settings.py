@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #SECRET_KEY = 'umpnvjhpt^)0^hugmaknt041_g$b5nx$t-#c$4--f&+cd4stt='
 #SECRET_KEY = os.environ['SECRET_KEY']
 
-with open('/etc/secret_key.txt') as f:
+with open('/etc/secret_key.txt', 'r') as f:
     SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
