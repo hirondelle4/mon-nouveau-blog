@@ -22,7 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+import dotenv # <- New
+
+# Add .env variables anywhere before SECRET_KEY
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+# Update secret key
+SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+
+#SECRET_KEY = os.getenv("SECRET_KEY")
 #SECRET_KEY = os.environ['SECRET_KEY']
 
 #with open('~/etc/secret_key.txt', 'r') as f:
