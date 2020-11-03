@@ -11,12 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import os
 
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -43,8 +39,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #with open('~/etc/secret_key.txt', 'r') as f:
   #  SECRET_KEY = f.read().strip()
+
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
+
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
