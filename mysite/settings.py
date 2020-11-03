@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import os
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    SECRET_KEY = os.getenv('SECRET_KEY')
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,15 +31,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-import dotenv # <- New
+#import dotenv # <- New
 
 # Add .env variables anywhere before SECRET_KEY
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+#dotenv_file = os.path.join(BASE_DIR, ".env")
+#if os.path.isfile(dotenv_file):
+ #   dotenv.load_dotenv(dotenv_file)
 
 # Update secret key
-SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+#SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
 
 #SECRET_KEY = os.getenv("SECRET_KEY")
 #SECRET_KEY = os.environ['SECRET_KEY']
@@ -38,7 +47,7 @@ SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
 #with open('~/etc/secret_key.txt', 'r') as f:
   #  SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+#DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
